@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动的文字</title>
+    <style>
+        #text {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text" id="text">hello world</div>
+    <script>
+        (function () {
+            window.onload = function () {
+                /**********************文字的移动*****************************/
+                var text = document.getElementById('text');
+                var flage = true;
+                // 鼠标放上去
+                text.onmouseover = function () {
+                    flage = true;
+                    textMove.call(this);
+                }
+                // 鼠标离开
+                text.onmouseout = function () {
+                    flage = false;
+                }
+                // 移动事件
+                function textMove() {
+                    var lf = parseInt(getStyle(this, 'left'));
+                    this.style.left = ++lf + 'px';
+                    if (flage) {
+                        setTimeout(textMove.bind(this), 100);
+                    }
+                }
+
+                /**********************功能2*****************************/
+                
+                /**********************功能3*****************************/
+            }
+        })();
+
+        // 这里写功能函数 一般写在外部tools里面
+        function getStyle(el, name) {
+            if (el.currentStyle) {
+                return el.currentStyle[name];
+            }
+            return getComputedStyle(el, null)[name];
+        }
+    </script>
+</body>
+
+</html>

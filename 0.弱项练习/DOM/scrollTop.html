@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scrollTop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // element.scrollTop 可以获取或设置一个元素的内容垂直滚动的像素
+        // 这个元素的顶部  -> 可视区域顶部
+        var domf = document.createDocumentFragment();
+        for (var i = 0; i < 200; i++) {
+            var divDom = document.createElement('div');
+            divDom.style.width = "100px";
+            divDom.style.height = "100px";
+            divDom.style.marginBottom = "10px";
+            divDom.style.backgroundColor = "pink";
+            domf.appendChild(divDom);
+        }
+        document.body.appendChild(domf);
+        
+        // 页面滚动事件
+        window.onscroll = function () {
+            // 获取scrollTop
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrollTop);
+        }
+    </script>
+</body>
+
+</html>

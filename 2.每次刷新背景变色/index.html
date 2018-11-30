@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>每次刷新背景变色</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            // 获取rgb三色的随机值
+            var r = getRandom(0, 255);
+            var g = getRandom(0, 255);
+            var b = getRandom(0, 255);
+            // 设置背景色
+            document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        /*
+         *  document.body : <body>
+         *  document.documentElement: <html>
+         * 
+         */
+    </script>
+</body>
+
+</html>

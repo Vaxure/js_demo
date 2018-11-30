@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 15544
+        var start = new Date();
+        var domf = document.createDocumentFragment();
+        for (var i = 0; i < 2000000; i++) {
+            var divDom = document.createElement('div');
+            divDom.style.width = "100px";
+            divDom.style.height = "100px";
+            divDom.style.backgroundColor = "pink";
+            domf.appendChild(divDom);
+        }
+        document.body.appendChild(domf);
+        var end = new Date();
+        
+        console.log(end - start);
+        //16118
+        /* var start = new Date();
+        for (var i = 0; i < 2000000; i++) {
+            var divDom = document.createElement('div');
+            divDom.style.width = "100px";
+            divDom.style.height = "100px";
+            divDom.style.backgroundColor = "pink";
+            document.body.appendChild(divDom);
+        }
+        var end = new Date();
+        console.log(end - start); */
+    </script>
+</body>
+</html>
